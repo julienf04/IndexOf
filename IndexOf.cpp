@@ -1,21 +1,22 @@
 #include <iostream>
 using namespace std;
 
-int IndexOf(string s, string toSearch);
+// Return the zero-based index of the first occurrence of the specified string in the source string
+int IndexOf(string source, string toSearch);
 
-int IndexOf(string s, string toSearch)
+int IndexOf(string source, string toSearch)
 {
-    const int sLength = s.length();
+    const int sourceLength = source.length();
     const int toSearchLength = toSearch.length();
     const int notExist = -1;
-    if (toSearchLength > sLength)
+    if (toSearchLength > sourceLength)
         return notExist;
 
 
-    for (int i = 0, currentOccurrence = 0; i <= (currentOccurrence == 0 ? (sLength - toSearchLength) : (sLength)); i++)
+    for (int i = 0, currentOccurrence = 0; i <= (currentOccurrence == 0 ? (sourceLength - toSearchLength) : (sourceLength)); i++)
     {
         if (currentOccurrence < toSearchLength)
-            if (s[i] == toSearch[currentOccurrence])
+            if (source[i] == toSearch[currentOccurrence])
                 currentOccurrence++;
             else
                 currentOccurrence = 0;
@@ -27,10 +28,10 @@ int IndexOf(string s, string toSearch)
 
 int main()
 {
-    string s = "Hola como estan todos me llamo julian jaja";
-    string toSearch = "ola como estan todos me llamo julian jaja";
+    string source = "Hello! julienf04 here";
+    string toSearch = "jul";
 
-    int index = IndexOf(s, toSearch);
+    int index = IndexOf(source, toSearch);
     cout << index << endl;
 
     system("pause");
